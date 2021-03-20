@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container, makeStyles, Typography } from "@material-ui/core";
 import { PostApiContext } from "../../contexts/PostApiContext";
 import PostList from "../PostsList/PostList";
-import { Skeleton } from "@material-ui/lab";
 const useStyle = makeStyles({
   homeContainer: {
     marginTop: "30px",
@@ -33,16 +32,9 @@ const Home = () => {
       </Typography>
 
       <div>
-        {loading
-          ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
-              <div className={classes.skel}>
-                <Skeleton key={n} animation="wave" variant="text" height={50} />
-                <hr />
-              </div>
-            ))
-          : state.apiData.map((post) => (
-              <PostList key={post.id} post={post} loading={loading}></PostList>
-            ))}
+        {state.apiData.map((post) => (
+          <PostList key={post.id} post={post} loading={loading}></PostList>
+        ))}
       </div>
     </Container>
   );
