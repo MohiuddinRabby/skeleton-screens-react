@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Container, makeStyles, Typography } from "@material-ui/core";
 import { PostApiContext } from "../../contexts/PostApiContext";
 import PostList from "../PostsList/PostList";
+import CustomSkeletonBody from "../../CustomSkeletons/CustomSkeletonBody";
 const useStyle = makeStyles({
   homeContainer: {
     marginTop: "30px",
@@ -30,12 +31,11 @@ const Home = () => {
       <Typography variant="h4" color="textSecondary">
         Posts
       </Typography>
-
-      <div>
-        {state.apiData.map((post) => (
-          <PostList key={post.id} post={post} loading={loading}></PostList>
-        ))}
-      </div>
+      {loading
+        ? [1, 2, 3, 4, 5].map((skel) => <CustomSkeletonBody key={skel} />)
+        : state.apiData.map((post) => (
+            <PostList key={post.id} post={post}></PostList>
+          ))}
     </Container>
   );
 };

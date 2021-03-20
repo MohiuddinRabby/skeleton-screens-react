@@ -1,0 +1,28 @@
+/* Global Skeleton style */
+.customSkeleton {
+  background: #d1e0e0;
+  margin: 10px 0;
+  border-radius: 4px;
+}
+.customSkeleton.text {
+  width: 100%;
+  height: 12px;
+}
+.customSkeleton.title {
+  width: 30%;
+  height: 25px;
+}
+.customSkeleton.thumbnail {
+  width: 100px;
+  height: 100px;
+}
+.customSkeleton.avatar {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+/* Skeleton Body */
+.custom-skeleton-wrapper {
+  margin: 10px auto;
+  padding: 15px 10px;
+}
